@@ -12,7 +12,7 @@
     <script type="text/javascript">
         //Score and location visits
         var score = 0;
-		var wisdom = 0;
+	var wisdom = 0;
         var locNorth = false;
         var locSouth = false;
         var locEast = false;
@@ -20,7 +20,8 @@
         //Go North
         function btnNorth() {
             document.getElementById("maintext").value = "You stumble upon a farm house, a pitbull that was sleeping outside perks up and chases after you.  You end up back where you woke up.";
-            if (locNorth == false) {
+            //if statement for visiting once
+		if (locNorth == false) {
                 score += 5;
                 document.getElementById("scorebox").value = "Score:" + score;
                 locNorth = true;
@@ -31,7 +32,8 @@
         //Go South
         function btnSouth() {
             document.getElementById("maintext").value = "You run into an amish man on a dirt road outside of the cornfeild.  He notices you. After some conversing, he tells you 'you are going the wrong way' and bestows upon you the sacred amish teachings hoping that it helps you find your way back.";
-            if (locSouth == false) {
+            //if statement for visiting once
+		if (locSouth == false) {
                 score += 5;
                 document.getElementById("scorebox").value = "Score:" + score;
 				wisdom += 10;
@@ -45,7 +47,8 @@
         //Go East		
         function btnEast() {
             document.getElementById("maintext").value = "You end up in a forest but your path is blocked by flooding due to recent heavy rainfall so you turn around.";
-            if (locEast == false) {
+           //if statement fo visiting once
+		if (locEast == false) {
                 score += 5;
                 document.getElementById("scorebox").value = "Score:" + score;
                 locEast = true;
@@ -56,7 +59,8 @@
         //Go West			
         function btnWest() {
             document.getElementById("maintext").value = "You keep walking for a few hours as the cornfeild extends in front of you.  Suddenly you hear your name being called out and you come to a paved road.  Your fraternity brothers are in a car searching for you and celebrate as they pick you up.  Congratulations you've earned the nickname Maze Runner.";
-            if (locWest == false) {
+            //if statement for visiting once
+		if (locWest == false) {
                 score += 5;
                 document.getElementById("scorebox").value = "Score:" + score;
                 locWest = true;
