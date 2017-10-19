@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<!--Bryant Gowan
+	9/27/17
+	Assignment 2-->
+<head>
+    <title>
+        Child of the Maze
+    </title>
+	
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript">
+        //Score and location visits
+        var score = 0;
+		var wisdom = 0;
+        var locNorth = false;
+        var locSouth = false;
+        var locEast = false;
+        var locWest = false;
+        var locNorthWest = false;
+        var locNorthEast = false;
+        var locWeast = false;		
+		function updateDisplay(message){
+			var textbox = document.getElementById("msg");
+				textbox.value = message;
+		}
+		
+        //Go North
+        function btnNorth() {
+		//if statement for visiting once
+		if (locNorth == false) {
+			
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 0;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You stumble upon a farm house, a pitbull that was sleeping outside perks up and chases after you.  You end up back where you woke up.";
+				updateDisplay(messgae)
+                locNorth = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+        //Go South
+        function btnSouth() {
+            //if statement for visiting once
+		if (locSouth == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 10;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You run into an amish man on a dirt road outside of the cornfeild.  He notices you. After some conversing, he tells you 'you are going the wrong way' and bestows upon you the sacred amish teachings hoping that it helps you find your way back.";
+				updateDisplay(message)
+                locSouth = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+			}
+        }
+        //Go East		
+        function btnEast() {
+           //if statement fo visiting once
+		if (locEast == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 0;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You end up in a forest but your path is blocked by flooding due to recent heavy rainfall so you turn around.";
+                updateDisplay(message)
+				locEast = true;				
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+        //Go West			
+        function btnWest() {
+            //if statement for visiting once
+		if (locWest == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 0;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You keep walking for a few hours as the cornfeild extends in front of you.  Suddenly you hear your name being called out and you come to a paved road.  Your fraternity brothers are in a car searching for you and celebrate as they pick you up.  Congratulations you've earned the nickname Maze Runner.";
+				updateDisplay(message)
+                locWest = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+        //Go North West
+        function btnNorthWest() {
+		//if statement for visiting once
+		if (locNorthWest == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 0;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You heads to the west of the farmhouse and discover a small amish town and decide to join their community and live the reast of your days as an amish.";
+				updateDisplay(messgae)
+                locNorthWest = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+        //Go North East
+        function btnNorthEast() {
+		//if statement for visiting once
+		if (locNorthEast == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += 0;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "You go east of the farmhouse because you are scared of the pitbull towards the forest and you find a path that leads out to the Susquehana.";
+				updateDisplay(messgae)
+                locNorthEast = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+        //Go West			
+        function btnWeast() {
+            //if statement for visiting once
+		if (locWeast == false) {
+                score += 5;
+                document.getElementById("scorebox").value = "Score:" + score;
+				wisdom += -5;
+                document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+				var message = document.getElementById("maintext").value = "East? I thought you said Weast.";
+				updateDisplay(message)
+                locWeast = true;
+            } else {
+                document.getElementById("scorebox").value = "Score:" + score;
+				document.getElementById("wisdombox").value = "Wisdom:" + wisdom;
+            }
+        }
+		
+		
+		function goBtn() {
+            var userText = document.getElementById("textCommand").value;
+            var display = "";
+            if (userText === "n") {
+                display = btnNorth();
+            	} else {
+            	if (userText === "e") {
+                    display = btnEast();
+                	} else {
+                    if (userText === "s") {
+                        display = btnSouth();
+                    	} else {
+                        if (userText === "w") {
+                            display = btnWest();
+                        	} else {
+							if (userText === "nw") {
+								display = btnNorthWest();
+								} else {
+								if (userText === "ne") {
+									display = btnNorthEast();
+									} else {
+									if (userText === "we") {
+										display = btnWeast();
+										} else {
+										if (userText === ""){
+										display = "Invalid Command: n,e,s,w,ne,sw are valid."
+                        			}
+                        		}
+                        	}
+                        }
+                    }
+                }
+            }
+		}	
+     }   	
+    </script>
+
+</head>
+
+<body>
+    <h1>
+        Child of the Maze
+    </h1>
+    <h2>
+        Creator: Bryant Gowan
+    </h2>
+    <textarea rows="8" 
+			  cols="44" 
+			  id="maintext" 
+			  name="maintext">You wake up in the middle of a corn feild.  You feel dazed and have no idea where you are.
+    </textarea>
+    <textarea rows="2" 
+			  cols="10" 
+			  id="scorebox" 
+			  name="scorebox">Score 
+	</textarea>
+	<textarea rows="2" 
+			  cols="10" 
+			  id="wisdombox" 
+			  name="wisdombox">Wisdom 
+	</textarea>
+    <br />
+
+    <input type="button" 
+		   id="btnNorth" 
+		   name="btnNorth" 
+		   value="North" 
+		   onclick="btnNorth();" />
+
+    <input type="button" 
+		   id="btnSouth" 
+		   name="btnSouth" 
+		   value="South" 
+		   onclick="btnSouth();" />
+
+    <input type="button" 
+		   id="btnEast" 
+		   name="btnEast" 
+		   value="East" 
+		   onclick="btnEast();" />
+
+    <input type="button" 
+		   id="btnWest" 
+		   name="btnWest" 
+		   value="West"
+		   onclick="btnWest();" />
+		   
+    <input type="button" 
+		   id="btnNorthWest" 
+		   name="btnNorthWest" 
+		   value="North West" 
+		   onclick="btnNorthWest();" />
+		   
+    <input type="button" 
+		   id="btnNorthEast" 
+		   name="btnNorthEast" 
+		   value="North East" 
+		   onclick="btnNorthEast();" />		
+		   
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+
+    <input type="button" 
+		   id="btnWeast" 
+		   name="btnWeast" 
+		   value="Weast"
+		   onclick="btnWeast();" />	   
+</a>
+<br>
+<br>
+		Command:       
+       	<input type="text" id="textCommand" name="textCommand">
+		<input type="button" value="Go" onclick="goBtn();" />
+<br>
+<br>
+    <p class="footer">
+        Questions? Email me: <a href="mailto:bryant.gowan1@marist.edu"> Bryant Gowan </a>
+    </p>
+	
+<!-- this story is based off of real events, the names of characters and places have been changed to protect their identities.-->
+</body>
+
+</html>
