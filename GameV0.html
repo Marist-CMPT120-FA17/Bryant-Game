@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+          Game V0.8
+      </title>
+      <script src = "location.js"> 
+      </script>
+	  <style type = "text/css">
+			body { text-align: center;}
+		</style>
+	  
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <script type="text/javascript">
+      var pos = 0;
+      var uscore = 0;      
+      var Loc1 = false;
+      var Loc2 = false;
+      var Loc3 = false;
+      var Loc4 = false;
+      var Loc5 = false;
+      var Loc6 = false;
+      var Loc7 = false;
+      var Loc8 = false;
+      var Loc9 = false;
+      var inventoryList = "Inventory:\n";
+      
+          function Command(){
+            var inputCommand = document.getElementById("inputCommand").value;
+            inputCommand = inputCommand.toUpperCase();
+            if (inputCommand == "N") {
+                North()
+            } else if (inputCommand == "S"){
+                South(); 
+            } else if (inputCommand == "E"){
+                East();
+            } else if (inputCommand == "W"){
+                West();
+            } else if (inputCommand == "T"){
+                TakeWeapon();
+            } else if (inputCommand == "I"){
+                Inventory();
+             } else if (inputCommand == "HELP") {
+                var message = "N, S, E, W, T, or I are the only commands. Visit different locations to gain score and you may find some items along the way.";
+                updateDisplay(message);
+            } else {
+                alert("Only Commands are N,S,E,W,T,orI");
+            } 
+          }
+          function position() {
+            switch(pos) {
+                case 0: cornField();      
+                     break;
+                case 1: cornFarm();    
+                     break; 
+                case 2: river();           
+                     break;
+                case 3: amishMan();           
+                    break;
+                case 4: amishTown();        
+                    break;
+                case 5: forest();                    
+                    break;
+                case 6: highway();                   
+                    break; 
+                case 7: gasStation();                   
+                    break;
+                case 8: collegeCampus();                  
+                    break;
+                case 9: fratHouse();                   
+                    break;
+           }         
+         } 
+ 
+         function North() {          
+        
+            if (pos == 6) {
+                pos = 3;
+                position(); 
+                updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 3){
+                   pos = 0;
+                   position(); 
+                   updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 7){
+                    pos = 4;
+                    position(); 
+                    updateDisplay(gLocations[pos].description);
+            }   
+            else if (pos == 4){
+                    pos = 1;
+                    position(); 
+                    updateDisplay(gLocations[pos].description);
+            }  
+            else if (pos == 8){
+                    pos = 5;
+                    position(); 
+                    updateDisplay(gLocations[pos].description);
+			}		
+            else if (pos == 5){
+                    pos = 2;
+                    position(); 
+                    updateDisplay(gLocations[pos].description);
+            } 
+            else {
+               var message = "That area is blocked off!!"
+               updateDisplay(message);       
+          }
+        }
+          
+         function South() {
+            if (pos == 0) {
+                pos = 3;
+                position(); 
+                updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 3){ 
+                     pos = 6;
+                     position(); 
+                    updateDisplay(gLocations[pos].description);
+            }       
+            else if (pos == 1){
+                     pos = 4;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 4){
+                     pos = 7;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }      
+            else if (pos == 2){
+                     pos = 5;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+			}		 
+            else if (pos == 5){
+                     pos = 8;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else {
+                 var message = "That area is blocked off!!"
+                 updateDisplay(message);
+            }
+          }
+        
+        function West() {
+            if (pos == 2){
+                pos = 1; 
+                position(); 
+                updateDisplay(gLocations[pos].description);
+              
+            } 
+            else if (pos == 1) {
+                   pos = 0;
+                   position(); 
+                   updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 5) {
+                   pos = 4;
+                   position(); 
+                   updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 4) {
+                   pos = 3 ;
+                   position(); 
+                   updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 9) {
+                   pos = 8;
+                   position(); 
+                   updateDisplay(gLocations[pos].description);
+            }     
+            else if (pos == 8){
+                   pos = 7;
+                   position(); 
+                  updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 7){
+                   pos = 6;
+                   position(); 
+                  updateDisplay(gLocations[pos].description);
+			}
+            else {
+              var message = "That area is blocked off!!"
+              updateDisplay(message);
+            }    
+          }
+        
+        function East(){ 
+           if (pos == 0){
+               pos = 1;
+               position(); 
+              updateDisplay(gLocations[pos].description);
+            }      
+            else if (pos == 1){
+                    pos = 2;
+                    position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 3){
+                     pos = 4;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 4){
+                     pos = 5;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 6){
+                     pos = 7;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }    
+            else if (pos == 7){
+                     pos = 8;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+            }
+            else if (pos == 8){
+                     pos = 9;
+                     position(); 
+                     updateDisplay(gLocations[pos].description);
+			}
+            else {
+              var message = "That area is blocked off!!"
+              updateDisplay(message);
+            }
+            position();
+          }  
+     
+        
+        function updateDisplay(message) {
+          var targetTextArea = document.getElementById("taMain");
+          targetTextArea.value = message;
+        }
+      
+        function updateScore() {
+          document.getElementById("score").innerHTML = "Score: " + uscore;
+        }
+         function init() {
+          var message = "You wake up in the middle of a corn field not knowing where you are.";
+          updateDisplay(message);
+         }
+        function takeItem(){
+          if (gLocations[pos].item == undefined){
+            alert("There is no item to take!");
+          }
+          else{
+            gItems.push(gLocations[pos].item);
+            inventoryList += gItems[gItems.length-1].name + "\n";
+            gLocations[pos].item = undefined;
+            updateDisplay(gItems[gItems.length-1].description);
+          }
+        }
+        function Inventory(){
+          if (gItems.length == 0){
+            alert("No items in Inventory.\n");
+          }
+          else{
+            alert(inventoryList);
+          }
+        }
+                
+        </script>
+
+ </head>  
+ <body>
+     <body onload = "init()">
+        
+<h1> <font color = "DAA520">Lost in Pennsylvania</font> </h1>     
+
+Questions?<a href = "mailto:bryant.gowan1@marist.edu"> Email me. </a> <!-- can't be read below game due to background-->
+    <br>
+    <br>
+     
+       <textarea rows="10" cols="30" id="taMain">
+       </textarea>
+	   <br>
+	   <textarea rows="1" cols="10" id = "score"> Score: 0</textarea>
+	   <br>
+	   <br>
+  
+      <input type="button"
+             value="North"
+             id = "North" 
+             onclick="North()" />            
+
+      <input type="button"
+             value="South" 
+             id = "South"
+             onclick="South()" /> 
+      
+      <input type="button"
+             value="East"
+             id = "East"
+             onclick="East()" /> 
+
+      <input type="button"
+             value="West"
+             id = "West" 
+             onclick="West()" />    
+
+          <br>
+      <input type="button"
+             value="Take"
+             id = "Take" 
+             onclick="takeItem()" /> 
+			 
+      <input type="button"
+             value="Inventory"
+             id = "Inventory" 
+             onclick="Inventory()" />   
+
+           <br>
+      
+ 
+
+      <textarea rows="1" 
+				cols="30" 
+				name="taMain" 
+				id = "inputCommand" ></textarea>
+	   
+      <input type="button" 
+			 value="Go" 
+			 onclick="Command()"/>       
+      
+
+           <br>
+
+
+
+
+
+       <br>
+       <br>
+
+
+
+       <body background="https://www.popsci.com/sites/popsci.com/files/images/2016/08/corn-830645_1920.jpg">
+       </body>
+       <img src = "map.jpg">
+
+<!--The help center is fantastic. I now have a better understanding of this.-->
+  </body>
+</html>
