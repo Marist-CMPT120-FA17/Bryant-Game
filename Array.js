@@ -20,7 +20,7 @@ function tostring()
    locationarray.push(new location(7,"gasStation","You come up to Turkey Hill gas station and see a friend outside. He sees that you are dehydrated and offers you a water."));
    locationarray.push(new location(8,"collegeCampus","You come back to your college campus and while you are walking through you find a pledge with a bacon, egg, and cheese on a roll. He offers you the sandwhich thinking it will benifit him in the future."));
    locationarray.push(new location(9,"fratHouse","Finally, you make it back to the fraternity house and gather all the brothers to hear your tale of bravery."));
-
+   locationarray.push(new location(10,"fieldCorn","You head into a corn feild trying not to get lost."));
 }
 function items(id,name,description)
 {
