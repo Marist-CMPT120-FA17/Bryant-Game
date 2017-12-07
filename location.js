@@ -1,3 +1,9 @@
+//Bryant Gowan
+//Game Final Project
+//12/7/2017
+
+
+
 var score = 5;
 var pos = 0;
 var north = 0;
