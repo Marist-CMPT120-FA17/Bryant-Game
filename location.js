@@ -34,15 +34,28 @@ var l_highway = new Location(6, "highway", "You come across a highway and start 
 var l_gasStation = new Location(7, "gasStation", "You come up to Turkey Hill gas station and see a friend outside. He sees that you are dehydrated and offers you a water.", item3);
 var l_collegeCampus = new Location(8, "collegeCampus", "You come back to your college campus and while you are walking through you find a pledge with a bacon, egg, and cheese on a roll. He offers you the sandwhich thinking it will benifit him in the future.", item4);
 var l_fratHouse = new Location(9, "fratHouse", "Finally, you make it back to the fraternity house and gather all the brothers to hear your tale of bravery.");
-
+var l_fieldCorn = new Location(10, "fieldCorn", "You head into a corn feild trying not to get lost.");
 //global location array
-var gLocations = [l_cornField, l_cornFarm, l_river, l_amishMan, l_amishTown, l_forest, l_highway, l_gasStation, l_collegeCampus, l_fratHouse];
+var gLocations = [l_cornField, l_cornFarm, l_river, l_amishMan, l_amishTown, l_forest, l_highway, l_gasStation, l_collegeCampus, l_fratHouse, l_fieldCorn];
 
 
 
 function cornField() { 
   if (Loc0 == false) {
     Loc0 = true;
+    uscore += 5;
+    updateScore();
+  }
+
+  document.getElementById("North").disabled = true;
+  document.getElementById("South").disabled = false;
+  document.getElementById("East").disabled = false;
+  document.getElementById("West").disabled = true;
+}  
+
+function fieldCorn() { 
+  if (Loc10 == false) {
+    Loc10 = true;
     uscore += 5;
     updateScore();
   }
