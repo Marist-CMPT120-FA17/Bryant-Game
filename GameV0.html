@@ -23,6 +23,7 @@
       var Loc7 = false;
       var Loc8 = false;
       var Loc9 = false;
+      var Loc10 = false;
       var inventoryList = "Inventory:\n";
       
           function Command(){
@@ -69,6 +70,8 @@
                     break;
                 case 9: fratHouse();                   
                     break;
+		case 10: fieldCorn();
+		    break;
            }         
          } 
  
@@ -80,7 +83,7 @@
                 updateDisplay(gLocations[pos].description);
             }
             else if (pos == 3){
-                   pos = 0;
+                   pos = 10;
                    position(); 
                    updateDisplay(gLocations[pos].description);
             }
@@ -116,10 +119,15 @@
                 position(); 
                 updateDisplay(gLocations[pos].description);
             }
+	    else if (pos == 10){
+		     pos = 3;
+		     position();
+		     updateDisplay(gLocations[pos].description);
+	    }
             else if (pos == 3){ 
                      pos = 6;
                      position(); 
-                    updateDisplay(gLocations[pos].description);
+                     updateDisplay(gLocations[pos].description);
             }       
             else if (pos == 1){
                      pos = 4;
@@ -155,7 +163,7 @@
               
             } 
             else if (pos == 1) {
-                   pos = 0;
+                   pos = 10;
                    position(); 
                    updateDisplay(gLocations[pos].description);
             }
@@ -195,10 +203,15 @@
                pos = 1;
                position(); 
               updateDisplay(gLocations[pos].description);
-            }      
+            }
+	    else if (pos == 10){
+		     pos = 1;
+		     position();
+		     updateDisplay(gLocations[pos].description);
+	    }
             else if (pos == 1){
-                    pos = 2;
-                    position(); 
+                     pos = 2;
+                     position(); 
                      updateDisplay(gLocations[pos].description);
             }
             else if (pos == 3){
@@ -245,6 +258,12 @@
          function init() {
           var message = "You wake up in the middle of a corn field not knowing where you are.";
           updateDisplay(message);
+	
+	 //disaple directional buttons on init
+	document.getElementById("North").disabled = true;
+	document.getElementById("South").disabled = false;
+	document.getElementById("East").disabled = false;
+	document.getElementById("West").disabled = true;
          }
         function takeItem(){
           if (gLocations[pos].item == undefined){
