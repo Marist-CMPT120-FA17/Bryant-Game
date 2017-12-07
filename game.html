@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+          Game Final
+      </title>
+      <script src = "location.js"> 
+      </script>
+	  <style type = "text/css">
+			body { text-align: center;}
+		</style>
+	  
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <script type="text/javascript">
+		//take item function
+	function takeItem() {
+		var itemCheck = gLocations[pos];
+			if (itemCheck.item === null) {
+				var message = "You search the area but cannot find anything.";
+				updateDisplay(message);
+			} else {
+				inv.push(items[pos]);
+				var message = gItems[pos].description;
+				updateDisplay(message);
+				gLocations[pos].item = null;
+				console.log(inv);
+			}
+	}
+		//view inventory
+		function Inventory(){
+             if (gItems.length == 0){
+                alert("No items in Inventory.\n");
+          }
+             else{
+                alert(inventoryList);
+          } 
+        } 
+	          
+        </script>
+
+ </head>  
+<body onload = "init()">
+
+        
+<h1> <font color = "DAA520">Lost in Pennsylvania</font> </h1>     
+
+Questions?<a href = "mailto:bryant.gowan1@marist.edu"> Email me. </a> <!-- can't be read below game due to background-->
+    <br>
+    <br>
+     
+       <textarea rows="10" cols="30" id="taMain">
+       </textarea>
+	   <br>
+	   <textarea rows="1" cols="10" id = "scoreBox"> Score: 0</textarea>
+	   <br>
+	   <br>
+  
+      <input type="button"
+             value="North"
+             id = "goNorth" 
+             onclick="North()" />            
+
+      <input type="button"
+             value="South" 
+             id = "goSouth"
+             onclick="South()" /> 
+      
+      <input type="button"
+             value="East"
+             id = "goEast"
+             onclick="East()" /> 
+
+      <input type="button"
+             value="West"
+             id = "goWest" 
+             onclick="West()" />    
+
+          <br>
+      <input type="button"
+             value="Search"
+             id = "Take" 
+             onclick="takeItem()" /> 
+			 
+      <input type="button"
+             value="Inventory"
+             id = "Inventory" 
+             onclick="Inventory()" />   
+      
+	  <input type="button"
+             value="Rest"
+             id = "Rest" 
+             onclick="rest()" /> 
+			 
+           <br>
+      
+ 
+
+      <textarea rows="1" 
+				cols="30" 
+				name="taMain" 
+				id = "inputCommand" ></textarea>
+	   
+      <input type="button" 
+			 value="Go" 
+			 onclick="Command()"/>       
+      
+
+           <br>
+
+
+
+
+
+       <br>
+       <br>
+
+
+
+       <body background="https://www.popsci.com/sites/popsci.com/files/images/2016/08/corn-830645_1920.jpg">
+       </body>
+       <img src = "map.jpg">
+
+<!--The help center is fantastic. I now have a better understanding of this.-->
+  </body>
+</html>
